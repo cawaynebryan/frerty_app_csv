@@ -1,0 +1,12 @@
+<h1> Upload file</h1>
+ {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<form  enctype="multipart/form-data" action="{{url_for('upload')}}" method="post">
+  <input type="file" name="pdf_file">
+  <button type="submit">Sub</button>
+</form>

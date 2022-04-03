@@ -1,0 +1,58 @@
+<!--https://datatables.net/examples/basic_init/filter_only.html-->
+
+{% extends "base.html" %}
+https://stackoverflow.com/questions/972/adding-a-method-to-an-existing-object-instance
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sample ID</th>
+        <th>Farm</th>
+        <th>Lot</th>
+        <th>Crop</th>
+        <th>pH</th>
+        <th>B</th>
+        <th>Ca</th>
+        <th>Cu</th>
+        <th>Fe</th>
+        <th>K</th>
+        <th>Mg</th>
+        <th>Mn</th>
+        <th>N</th>
+        <th>P</th>
+        <th>S</th>
+        <th>Zn</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/data',
+        columns: [
+          {data: 'Sample_id', orderable: false, searchable: false},
+          {data: 'Farm'},
+          {data: 'Lot'},
+          {data: 'Crop'},
+          {data: 'pH'},
+          {data: 'B'},
+          {data: 'Ca'},
+          {data: 'Cu'},
+          {data: 'Fe'},
+          {data: 'K'},
+          {data: 'Mg'},
+          {data: 'Mn'},
+          {data: 'N'},
+          {data: 'P'},
+          {data: 'S'},
+          {data: 'Zn'},
+        ],
+      });
+    });
+  </script>
+{% endblock %}
